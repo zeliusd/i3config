@@ -86,6 +86,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+#Caputra
+bindsym Print exec gnome-screenshot -f /home/miguel/Caps/Screenshot.png && xclip -selection clipboard -t image/png -i "/home/miguel/Caps/Screenshot.png" 
+
+#bindsym Print exec "scrot /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png"
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -93,7 +97,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Tab fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -117,37 +121,16 @@ bindsym $mod+a focus parent
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -187,6 +170,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
+        status_command i3blocks 
         colors{
                 background #222222
         }
@@ -198,3 +182,5 @@ smart_gaps on
 for_window [class="^.*"] border pixel 3
 exec feh --bg-fill /home/miguel/Descargas/wall1.jpeg
 exec picom -b -f
+exec --no-startup-id xset -dpms s off
+exec fcitx -d

@@ -1,0 +1,29 @@
+
+[spotify]
+command=~/.config/i3blocks/spotify-block.sh
+interval=5
+markup=pango
+color=#00eb56
+
+[ars]
+command=~/.config/i3blocks/ars.sh
+interval=65
+color=#fff700
+
+[weather]
+command=~/.config/i3blocks/temperatura.sh
+interval=600
+colors = #ffffff
+[time]
+command=date "+%A, %d %B %Y %H:%M"
+interval=60
+min_width=30
+color=#bda8ff
+
+[shutdown]
+color=#f57f7f
+command=echo You can do it
+min_width=65
+interval=once
+markup=pango
+
